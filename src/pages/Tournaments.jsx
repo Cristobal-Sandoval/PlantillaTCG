@@ -17,7 +17,7 @@ export default function Tournaments({
     <div className="space-y-8 animate-fade-in">
       <div>
         <span className="text-xs font-black text-[#0052FF] uppercase tracking-widest">COMPETICIÓN LOCAL</span>
-        <h2 className="text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Torneos en Concepción</h2>
+        <h2 className="text-3xl font-black tracking-tight mt-1 text-slate-900 dark:text-white">Torneos en Ciudad</h2>
         <p className="text-xs text-slate-400 mt-1">Únete a nuestra vibrante comunidad local. ¡El meta competitivo te espera!</p>
       </div>
 

@@ -649,7 +649,7 @@ export default function App() {
 
   // SEO y Metadatos Dinámicos
   let pageTitle = "MiTienda | Tienda de Singles TCG";
-  let pageDesc = "Tienda especializada en compra y venta de cartas sueltas de Pokémon TCG en Concepción, Chile.";
+  let pageDesc = "Tienda especializada en compra y venta de cartas sueltas de Pokémon TCG en Ciudad, País.";
   let pageImage = "";
   
   switch(currentTab) {
@@ -669,7 +669,7 @@ export default function App() {
       break;
     case 'tournaments':
       pageTitle = "Torneos Locales | MiTienda";
-      pageDesc = "Inscríbete en nuestros próximos torneos de Pokémon TCG en Concepción. Próximos eventos y fechas.";
+      pageDesc = "Inscríbete en nuestros próximos torneos de Pokémon TCG en Ciudad. Próximos eventos y fechas.";
       break;
     case 'database':
       pageTitle = "Base de Datos Pokémon | MiTienda";
@@ -677,7 +677,7 @@ export default function App() {
       break;
     case 'how-to-buy':
       pageTitle = "¿Cómo Comprar? | MiTienda";
-      pageDesc = "Aprende cómo comprar tus cartas de forma segura. Métodos de pago y envíos mediante Starken a todo Chile.";
+      pageDesc = "Aprende cómo comprar tus cartas de forma segura. Métodos de pago y envíos mediante Envío / Courier a todo Chile.";
       break;
   }
   
@@ -1833,7 +1833,7 @@ export default function App() {
 
           <div className="flex items-center gap-2">
             <MapPin size={13} className="text-[#0052FF]" />
-            <span className="font-semibold text-slate-800 dark:text-slate-200">Concepción, Chile</span>
+            <span className="font-semibold text-slate-800 dark:text-slate-200">Ciudad, País</span>
           </div>
         </div>
       </footer>

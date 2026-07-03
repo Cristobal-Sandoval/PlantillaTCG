@@ -32,7 +32,7 @@ export default function HowToBuy({ theme }) {
         <span className="text-xs font-black text-[#0052FF] uppercase tracking-widest">NUESTRA TIENDA</span>
         <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">Sobre MiTienda</h2>
         <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
-          Somos un equipo apasionado por el juego de cartas coleccionables Pokémon en Concepción. Nos esforzamos por ofrecer las mejores piezas y un servicio cercano y confiable.
+          Somos un equipo apasionado por el juego de cartas coleccionables Pokémon en Ciudad. Nos esforzamos por ofrecer las mejores piezas y un servicio cercano y confiable.
         </p>
       </div>
 
@@ -41,7 +41,7 @@ export default function HowToBuy({ theme }) {
         <div className="space-y-4">
           <h3 className="text-lg font-black text-[#0052FF]">¿Quiénes Somos?</h3>
           <p className="text-xs sm:text-sm text-slate-650 dark:text-slate-300 leading-relaxed">
-            Fundada en Concepción, tudominio.cl nació con el propósito de conectar a los coleccionistas y jugadores competitivos de la región del Biobío con un inventario actualizado y transparente. 
+            Fundada en Ciudad, tudominio.cl nació con el propósito de conectar a los coleccionistas y jugadores competitivos de la región del Región con un inventario actualizado y transparente. 
           </p>
           <p className="text-xs sm:text-sm text-slate-655 dark:text-slate-300 leading-relaxed">
             Garantizamos que el 100% de nuestras cartas sueltas son auténticas y han sido revisadas meticulosamente bajo estándares Near Mint (NM).
