@@ -1,29 +1,27 @@
-# 🎴 Plantilla de Tienda E-commerce y Catálogo TCG
+# 🛍️ Plantilla de E-commerce y Catálogo Multi-Propósito (TCG y Más)
 
-Esta es una plantilla de desarrollo altamente optimizada para crear tiendas de cartas coleccionables (Trading Card Games como Pokémon, Magic: The Gathering, Yu-Gi-Oh!, One Piece, etc.) y sitios de e-commerce basados en catálogos físicos con cierres de compra asistidos (por WhatsApp o mensajes de Instagram).
+Esta es una plantilla de desarrollo altamente optimizada para crear tiendas en línea basadas en catálogos de stock físico con cierres de venta asistidos (vía WhatsApp o mensajes directos de Instagram).
 
 > [!IMPORTANT]
-> **Hecho por CardPoint** ⚡
-> Esta plantilla fue diseñada, desarrollada y liberada por **[CardPoint](https://www.cardpoint.cl)**. Está basada directamente en la arquitectura de producción de su plataforma comercial, incorporando todas las características de rendimiento, SEO y marketing digital de última generación.
+> **Creado por CardPoint** ⚡
+> Esta plantilla fue diseñada, desarrollada y liberada por **[CardPoint](https://www.cardpoint.cl)**. Está basada en la arquitectura y experiencia comercial de su plataforma, estructurada como un borrador limpio y genérico para que desarrolladores y emprendedores puedan adaptarla a cualquier rubro: tiendas de cartas coleccionables (TCG como Pokémon, Magic, Yu-Gi-Oh!), tiendas de ropa/moda, tecnología, accesorios, libros o cualquier otro catálogo de productos.
 
 ---
 
 ## 🚀 Características Principales
 
-* **🛒 Catálogo Dinámico con Filtros Avanzados:** Filtros en tiempo real por expansión (set), rarezas, idioma de la carta (Español/Inglés), estado físico (NM, LP, MP, etc.) y badges dinámicos para cartas *Reverse Holo* o especiales de Liga.
-* **💼 Bolsa de Cotización (Carrito Asistido):** Los usuarios seleccionan las cartas de interés, aplican cupones de descuento y generan una lista optimizada y formateada en texto plano que pueden copiar con un clic al portapapeles para enviarla por Instagram DM o WhatsApp y coordinar la transferencia manual.
+* **🛒 Catálogo Dinámico con Filtros Avanzados:** Filtros en tiempo real por categoría (set), rarezas/etiquetas, idioma, estado físico y badges personalizados (como ofertas activas o promociones).
+* **💼 Bolsa de Cotización (Carrito Asistido):** Los usuarios seleccionan los productos de interés, aplican cupones de descuento y generan una lista optimizada y formateada en texto plano que pueden copiar con un clic al portapapeles para enviarla por WhatsApp o Instagram DM y coordinar la transferencia manual.
 * **🎟️ Administrador de Cupones:** Sistema dinámico administrable para crear códigos de descuento temporales (ej: `PROMO10`), activarlos/desactivarlos o eliminarlos directamente desde el panel de control.
-* **🛠️ Panel de Administración Premium:** interfaz integrada y protegida para:
-  * Gestionar el inventario de cartas (crear, editar, subir fotos reales de la carta física, modificar stock y cambiar visibilidad).
+* **🛠️ Panel de Administración Premium:** Interfaz integrada y protegida para:
+  * Gestionar el inventario de productos (crear, editar, subir fotos reales del stock físico, modificar cantidad de stock y cambiar visibilidad).
   * Administrar banners promocionales animados de la página principal.
-  * Publicar, ocultar o fijar noticias.
-  * Crear y calendarizar torneos locales con enlaces de preinscripción.
+  * Crear y calendarizar torneos locales, eventos presenciales o lanzamientos.
 * **🔌 Analíticas y Marketing Integrado:** Configuración sin código desde la sección de administración para:
-  * **Google Tag Manager (GTM):** inyección de ID para conectar Google Analytics 4, Tag Assistant o conversiones de Google Ads.
-  * **Meta Pixel (Facebook/Instagram Ads):** medición de eventos de visitas para optimizar campañas de redes sociales.
-  * **Microsoft Clarity:** grabación de comportamiento de usuario y mapas térmicos.
-* **📰 Automatización de Noticias:** Módulo de lector RSS que consume noticias del mundo TCG de forma automatizada y resiliente con fallbacks.
-* **☁️ Integración Supabase:** Conexión directa en tiempo real con Supabase para almacenamiento de datos, autenticación y storage de imágenes de cartas.
+  * **Google Tag Manager (GTM):** Inyección de ID para conectar Google Analytics 4, Tag Assistant o conversiones de Google Ads.
+  * **Meta Pixel (Facebook/Instagram Ads):** Medición de eventos de visitas para optimizar campañas de redes sociales.
+  * **Microsoft Clarity:** Grabación de comportamiento de usuario y mapas térmicos.
+* **☁️ Integración Supabase:** Conexión directa en tiempo real con Supabase para almacenamiento de datos, autenticación y storage de imágenes.
 
 ---
 
