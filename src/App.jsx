@@ -2,9 +2,7 @@
 import React, { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useCards } from './hooks/useCards';
-import { useNews } from './hooks/useNews';
 import { useTournaments } from './hooks/useTournaments';
-import { useAutoNews } from './hooks/useAutoNews';
 import { useAdmin } from './hooks/useAdmin';
 import { HERO_BANNERS } from './constants/banners';
 import { 
@@ -241,9 +239,8 @@ export default function App() {
 
   const [theme, setTheme] = useState('light');
 
-  // ── Supabase data hooks ──────────────────────────────────────
   const { cards: dbCards, loading: cardsLoading } = useCards();
-  const { news: dbNews, loading: newsLoading } = useNews();
+  const dbNews = []; const newsLoading = false;
   const { tournaments: dbTournaments, loading: tournamentsLoading } = useTournaments();
 
   const catalogCards = dbCards;
@@ -311,7 +308,7 @@ export default function App() {
 
   // Panel de Control Settings
   const { adminSettings, updateSetting } = useAdmin();
-  const { autoNews, loadingAuto } = useAutoNews(adminSettings.news_sources);
+  const autoNews = []; const loadingAuto = false;
   
   const hiddenNewsIds = adminSettings.hidden_news || [];
   const pinnedNewsIds = adminSettings.pinned_news || [];

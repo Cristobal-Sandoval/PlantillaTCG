@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { supabase } from '../supabaseClient';
-import { useAutoNews } from '../hooks/useAutoNews';
 import { useAdmin } from '../hooks/useAdmin';
 import { HERO_BANNERS } from '../constants/banners';
 
@@ -655,7 +654,7 @@ function AdminNews({ toast }) {
   const hiddenNewsIds = adminSettings?.hidden_news || [];
   const pinnedNewsIds = adminSettings?.pinned_news || [];
   const newsSources = adminSettings?.news_sources || { pokemon: true, tcgnews: true, autogenerate: true };
-  const { autoNews, loadingAuto } = useAutoNews(newsSources);
+  const autoNews = []; const loadingAuto = false;
 
   const togglePinNews = async (id) => {
     const next = pinnedNewsIds.includes(id)
