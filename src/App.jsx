@@ -120,60 +120,39 @@ const RARITY_PRIORITY = {
 const PLACEHOLDER_CARDS = [
   {
     id: 1,
-    name: "Charizard ex",
-    set: "Escarlata y Púrpura",
-    setCode: "sv45",
-    rarity: "Especial Ilustración Rara",
+    name: "Producto A",
+    set: "Categoría Alfa",
+    setCode: "CAT-A",
+    rarity: "Edición Limitada",
     price: 89990,
-    condition: "NM",
-    image: "https://images.pokemontcg.io/sv4f/234_hires.png",
-    description: "Impresionante Charizard ex con ilustración especial de Paldean Fates. Estado impecable (Near Mint), ideal para coleccionistas exigentes."
+    condition: "Nuevo",
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Producto A]</text></svg>",
+    description: "Descripción detallada del Producto A. Cuenta con características premium, garantía oficial y despacho inmediato."
   },
   {
     id: 2,
-    name: "Pikachu ex",
-    set: "Escarlata y Púrpura",
-    setCode: "sv035",
-    rarity: "Especial Ilustración Rara",
-    price: 74990,
-    condition: "NM",
-    image: "https://images.pokemontcg.io/sv3pt5/173_hires.png",
-    description: "Pikachu en su versión de arte alternativo de la expansión 151. Centrado ideal y esquinas perfectas."
+    name: "Producto B",
+    set: "Categoría Alfa",
+    setCode: "CAT-A",
+    rarity: "Estándar",
+    price: 39990,
+    condition: "Nuevo",
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Producto B]</text></svg>",
+    description: "Descripción detallada del Producto B. Alto rendimiento, excelente calidad-precio y listo para usar."
   },
   {
     id: 3,
-    name: "Mewtwo V",
-    set: "Espada y Escudo",
-    setCode: "swsh12",
-    rarity: "Ultra Rara",
-    price: 39990,
-    condition: "NM",
-    image: "https://images.pokemontcg.io/swsh12pt5/GG44_hires.png",
-    description: "Espectacular Mewtwo V de Crown Zenith (Galarian Gallery) combatiendo a Charizard. Una de las cartas más dinámicas de la era."
-  },
-  {
-    id: 4,
-    name: "Gardevoir ex",
-    set: "Escarlata y Púrpura",
-    setCode: "sv45",
-    rarity: "Especial Ilustración Rara",
-    price: 29990,
-    condition: "NM",
-    image: "https://images.pokemontcg.io/sv4f/233_hires.png",
-    description: "Gardevoir ex Ilustración Especial. Cuenta la bella historia familiar del Pokémon en un entorno hogareño."
-  },
-  {
-    id: 5,
-    name: "Arceus VSTAR",
-    set: "Espada y Escudo",
-    setCode: "swsh12pt5",
-    rarity: "Ultra Rara Secreta",
+    name: "Producto C",
+    set: "Categoría Beta",
+    setCode: "CAT-B",
+    rarity: "Premium",
     price: 49990,
-    condition: "NM",
-    image: "https://images.pokemontcg.io/swsh12pt5/GG70_hires.png",
-    description: "Carta dorada de Arceus VSTAR de la galería de Crown Zenith. Una pieza central de lujo para cualquier coleccionista del TCG."
+    condition: "Nuevo",
+    image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Producto C]</text></svg>",
+    description: "Descripción detallada del Producto C. Ideal para profesionales y aficionados exigentes."
   }
 ];
+
 
 // Hook de Debounce
 function useDebounce(value, delay) {
@@ -1549,7 +1528,7 @@ export default function App() {
         </div>
       )}
 
-      {/* 2. MODAL DETALLE DE CARTA */}
+      {/* 2. MODAL Detalle del Producto */}
       {selectedCardDetail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fade-in">
           <div className="absolute inset-0" onClick={() => setSelectedCardDetail(null)}></div>
@@ -1570,11 +1549,11 @@ export default function App() {
                 )}
                 <img 
                   src={showRealPhoto && selectedCardDetail.real_photo ? selectedCardDetail.real_photo : selectedCardDetail.image} 
-                  alt={`Detalle de carta Pokémon: ${selectedCardDetail.name} - Rarity: ${selectedCardDetail.rarity}`} 
+                  alt={`Detalle de Producto: ${selectedCardDetail.name} - Rarity: ${selectedCardDetail.rarity}`} 
                   loading="lazy"
                   onLoad={() => setModalImageLoading(false)}
                   onClick={() => setIsImageZoomed(true)}
-                  onError={(e) => { e.target.onerror = null; e.target.src = "https://images.pokemontcg.io/cardback.png"; }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>"; }}
                   className="w-full max-h-[250px] sm:max-h-[300px] md:max-h-[360px] object-contain transform hover:scale-105 transition-transform duration-300 cursor-zoom-in" 
                 />
               </div>

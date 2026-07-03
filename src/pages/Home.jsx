@@ -134,26 +134,26 @@ export default function Home({
                         <>
                           <img 
                             src={randomPromoCards[2].image} 
-                            alt={`Carta Pokémon: ${randomPromoCards[2].name}`} 
+                            alt={`Producto: ${randomPromoCards[2].name}`} 
                             loading="eager" 
                             onClick={() => setSelectedCardDetail(randomPromoCards[2])}
-                            onError={(e) => { e.target.onerror = null; e.target.src = "https://images.pokemontcg.io/cardback.png"; }}
+                            onError={(e) => { e.target.onerror = null; e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>"; }}
                             className="absolute w-[130px] rounded-xl shadow-2xl border border-white/20 rotate-[-20deg] -translate-x-28 translate-y-8 opacity-80 cursor-pointer hover:scale-110 hover:-translate-y-2 hover:opacity-100 transition-all duration-300 z-0" 
                           />
                           <img 
                             src={randomPromoCards[0].image} 
-                            alt={`Carta Pokémon: ${randomPromoCards[0].name}`} 
+                            alt={`Producto: ${randomPromoCards[0].name}`} 
                             loading="eager" 
                             onClick={() => setSelectedCardDetail(randomPromoCards[0])}
-                            onError={(e) => { e.target.onerror = null; e.target.src = "https://images.pokemontcg.io/cardback.png"; }}
+                            onError={(e) => { e.target.onerror = null; e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>"; }}
                             className="absolute w-[145px] rounded-xl shadow-2xl border border-white/30 rotate-[12deg] translate-x-20 translate-y-10 cursor-pointer hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-10" 
                           />
                           <img 
                             src={randomPromoCards[1].image} 
-                            alt={`Carta Pokémon: ${randomPromoCards[1].name}`} 
+                            alt={`Producto: ${randomPromoCards[1].name}`} 
                             loading="eager" 
                             onClick={() => setSelectedCardDetail(randomPromoCards[1])}
-                            onError={(e) => { e.target.onerror = null; e.target.src = "https://images.pokemontcg.io/cardback.png"; }}
+                            onError={(e) => { e.target.onerror = null; e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>"; }}
                             className="absolute w-[155px] rounded-xl shadow-2xl border border-white/40 -rotate-5 cursor-pointer hover:scale-110 hover:-translate-y-2 transition-all duration-300 z-20" 
                           />
                         </>
@@ -161,19 +161,19 @@ export default function Home({
                         <>
                           <img 
                             src={b.images[2]} 
-                            alt="Carta Pokémon TCG destacada de fondo" 
+                            alt="Producto TCG destacada de fondo" 
                             loading="eager" 
                             className="absolute w-[130px] rounded-xl shadow-2xl border border-white/20 rotate-[-20deg] -translate-x-28 translate-y-8 opacity-80" 
                           />
                           <img 
                             src={b.images[0]} 
-                            alt="Carta Pokémon TCG destacada derecha" 
+                            alt="Producto TCG destacada derecha" 
                             loading="eager" 
                             className="absolute w-[145px] rounded-xl shadow-2xl border border-white/30 rotate-[12deg] translate-x-20 translate-y-10" 
                           />
                           <img 
                             src={b.images[1]} 
-                            alt="Carta Pokémon TCG destacada central" 
+                            alt="Producto TCG destacada central" 
                             loading="eager" 
                             className="absolute w-[155px] rounded-xl shadow-2xl border border-white/40 -rotate-5 z-10" 
                           />
@@ -358,7 +358,7 @@ export default function Home({
                   >
                     <img 
                       src={card.image} 
-                      alt={`Carta Pokémon ${card.name} - Rarity: ${card.rarity} - Set: ${card.set}`}
+                      alt={`Producto ${card.name} - Rarity: ${card.rarity} - Set: ${card.set}`}
                       loading="lazy"
                       className="w-full h-full object-contain p-3.5 transform hover:scale-105 transition-transform duration-300"
                       draggable="false"

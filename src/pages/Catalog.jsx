@@ -247,11 +247,11 @@ export default function Catalog({
                     >
                       <img 
                         src={card.image} 
-                        alt={`Carta Pokémon ${card.name} - Rarity: ${card.rarity} - Set: ${card.set}`}
+                        alt={`Producto ${card.name} - Rarity: ${card.rarity} - Set: ${card.set}`}
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-contain p-3 sm:p-4 transform hover:scale-105 transition-transform duration-300"
-                        onError={(e) => { e.target.onerror = null; e.target.src = "https://images.pokemontcg.io/cardback.png"; }}
+                        onError={(e) => { e.target.onerror = null; e.target.src = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>"; }}
                       />
                       <span className="absolute bottom-2 right-2 bg-[#0052FF] text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow">
                         {card.condition}

@@ -558,7 +558,7 @@ function AdminCards({ toast }) {
                   <div className={`w-11 h-6 rounded-full transition-all flex-shrink-0 ${form.is_league ? 'bg-rose-500' : 'bg-slate-600'}`} onClick={() => setForm({...form, is_league: !form.is_league})}>
                     <div className={`w-5 h-5 bg-white rounded-full mt-0.5 transition-transform ${form.is_league ? 'translate-x-5.5' : 'translate-x-0.5'}`} />
                   </div>
-                  <span className="text-xs font-semibold text-slate-300 whitespace-nowrap">Carta de Liga</span>
+                  <span className="text-xs font-semibold text-slate-300 whitespace-nowrap">Producto Especial</span>
                 </label>
               </div>
             </div>
@@ -582,10 +582,10 @@ function AdminCards({ toast }) {
               </Field>
             )}
             <Field label="URL de Imagen (API / Oficial)">
-              <input className={inputCls} value={form.image} onChange={e => setForm({...form, image: e.target.value})} placeholder="https://images.pokemontcg.io/..." />
+              <input className={inputCls} value={form.image} onChange={e => setForm({...form, image: e.target.value})} placeholder="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>" />
             </Field>
             {form.image && <img src={form.image} alt="preview" className="w-20 h-28 object-contain rounded-xl border border-white/10 mx-auto" />}
-            <Field label="📸 Foto Real de tu Carta">
+            <Field label="📸 foto real del producto">
               <div className="flex gap-2">
                 <input
                   className={inputCls}
@@ -3056,7 +3056,7 @@ function BulkImportModal({ onClose, onImportSuccess, toast }) {
                     <div className={`w-11 h-6 rounded-full transition-all flex-shrink-0 ${manualForm.is_league ? 'bg-rose-500' : 'bg-slate-600'}`} onClick={() => setManualForm({ ...manualForm, is_league: !manualForm.is_league })}>
                       <div className={`w-5 h-5 bg-white rounded-full mt-0.5 transition-transform ${manualForm.is_league ? 'translate-x-5.5' : 'translate-x-0.5'}`} />
                     </div>
-                    <span className="text-xs font-semibold text-slate-300 whitespace-nowrap">Carta de Liga</span>
+                    <span className="text-xs font-semibold text-slate-300 whitespace-nowrap">Producto Especial</span>
                   </label>
                 </div>
               </div>

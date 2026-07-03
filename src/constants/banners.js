@@ -1,17 +1,17 @@
-﻿export const HERO_BANNERS = [
+export const HERO_BANNERS = [
   {
     id: 1,
     type: 'ui',
-    tag: 'Tienda de singles Pokémon TCG en Concepción',
-    title: 'Tu tienda TCG',
+    tag: 'Tienda Online - Catálogo de Productos',
+    title: 'Tu tienda digital',
     titleAccent: 'de confianza',
-    description: 'Especialistas en cartas sueltas de Pokémon TCG en Concepción. Encuentra tus cartas favoritas y completa tu colección con confianza y seguridad.',
-    cta: 'Ver stock en venta',
+    description: 'Explora nuestro catálogo de productos en stock real, realiza cotizaciones, revisa próximos eventos y ponte en contacto con nosotros para coordinar tu compra.',
+    cta: 'Ver productos en venta',
     tab: 'catalog',
     images: [
-      'https://images.pokemontcg.io/swsh12pt5/GG44_hires.png',
-      'https://images.pokemontcg.io/sv4f/234_hires.png',
-      'https://images.pokemontcg.io/sv3pt5/173_hires.png',
+      `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>`,
+      `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>`,
+      `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='320' viewBox='0 0 240 320'><rect width='100%' height='100%' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='14' fill='%2364748b'>[Sin Imagen]</text></svg>`,
     ],
     bgFrom: '#0052FF',
     bgTo: '#3b82f6',
