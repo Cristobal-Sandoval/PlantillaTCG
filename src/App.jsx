@@ -32,7 +32,6 @@ import GoogleAdSlot from './components/GoogleAdSlot';
 // Carga perezosa de vistas públicas de MiTienda
 const Home = lazy(() => import('./pages/Home'));
 const Catalog = lazy(() => import('./pages/Catalog'));
-const News = lazy(() => import('./pages/News'));
 const Tournaments = lazy(() => import('./pages/Tournaments'));
 const HowToBuy = lazy(() => import('./pages/HowToBuy'));
 
@@ -1045,20 +1044,6 @@ export default function App() {
     }
   };
 
-  useEffect(() => {
-    if (currentTab === 'database') {
-      if (dbSearch === lastFetchedQuery && dbPage === lastFetchedPage && dbCardsList.length > 0) {
-        return;
-      }
-      const delayDebounceFn = setTimeout(() => {
-        fetchDBCards(dbSearch, dbPage);
-        setLastFetchedQuery(dbSearch);
-        setLastFetchedPage(dbPage);
-      }, 550); 
-      return () => clearTimeout(delayDebounceFn);
-    }
-  }, [dbSearch, dbPage, currentTab, lastFetchedQuery, lastFetchedPage, dbCardsList.length]);
-
   const toggleInquiry = (card) => {
     if (inquiryList.some(item => item.id === card.id)) {
       setInquiryList(inquiryList.filter(item => item.id !== card.id));
@@ -1217,12 +1202,10 @@ export default function App() {
               <StoreLogo className="scale-90 origin-left" showText={true} />
             </div>
 
-            {/* Menú de Navegación */}
             <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 font-bold text-xs uppercase tracking-wider">
               {[
                 { id: 'home', label: 'Inicio' },
                 { id: 'catalog', label: 'En Stock' },
-                { id: 'news', label: 'Noticias' },
                 { id: 'tournaments', label: 'Torneos' }
               ].map((item) => {
                 const isActive = currentTab === item.id && !selectedNews;
@@ -1248,16 +1231,7 @@ export default function App() {
 
             {/* Acciones de Cabecera */}
             <div className="flex items-center gap-2 sm:gap-3">
-              {/* Instagram link */}
-              <a
-                href="https://instagram.com/tudominio.cl"
-                target="_blank"
-                rel="noreferrer"
-                className="hidden lg:flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-pink-600 transition-colors"
-              >
-                <Instagram size={15} className="text-pink-500" />
-                <span>@tudominio.cl</span>
-              </a>
+
 
               {/* Tema Oscuro / Claro */}
               <button
@@ -1297,7 +1271,6 @@ export default function App() {
         {[
           { id: 'home', label: 'Inicio', icon: Sparkles },
           { id: 'catalog', label: 'Stock', icon: Layers },
-          { id: 'news', label: 'Noticias', icon: BookOpen },
           { id: 'tournaments', label: 'Torneos', icon: MapPin }
         ].map((item) => {
           const Icon = item.icon;
@@ -1387,18 +1360,6 @@ export default function App() {
             />
           )}
 
-          {currentTab === 'news' && (
-            <News 
-              theme={theme}
-              newsLoading={newsLoading}
-              selectedNews={selectedNews}
-              setSelectedNews={handleSetSelectedNews}
-              loadingFullContent={loadingFullContent}
-              visibleNewsList={visibleNewsList}
-              newsPage={newsPage}
-              setNewsPage={setNewsPage}
-            />
-          )}
 
           {currentTab === 'tournaments' && (
             <Tournaments 
@@ -1564,7 +1525,7 @@ export default function App() {
                   ) : (
                     <>
                       <Copy size={14} />
-                      Copiar Lista para Instagram
+                      Copiar Lista de Pedido
                     </>
                   )}
                 </button>
@@ -1572,16 +1533,8 @@ export default function App() {
                 <div className="flex gap-2">
                   <button
                     disabled={inquiryList.length === 0}
-                    onClick={openInstagramInquiry}
-                    className="w-1/2 py-2.5 border border-pink-500/30 hover:bg-pink-500/5 disabled:opacity-50 text-pink-500 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                  >
-                    <Instagram size={14} />
-                    Ir a Instagram
-                  </button>
-                  <button
-                    disabled={inquiryList.length === 0}
                     onClick={clearInquiryList}
-                    className="w-1/2 py-2.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 disabled:opacity-50 text-slate-500 text-xs font-bold rounded-xl transition-all cursor-pointer"
+                    className="w-full py-2.5 border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-900 disabled:opacity-50 text-slate-500 text-xs font-bold rounded-xl transition-all cursor-pointer"
                   >
                     Vaciar Bolsa
                   </button>
@@ -1589,7 +1542,7 @@ export default function App() {
               </div>
 
               <p className="text-[9px] text-slate-400 text-center leading-relaxed">
-                *Copia la lista y envíanosla por mensaje directo en Instagram. Confirmaremos stock real y te enviaremos los datos definitivos.
+                *Copia la lista y envíanosla por nuestro medio de contacto preferido para coordinar el pago y envío.
               </p>
             </div>
           </div>
@@ -1870,7 +1823,7 @@ export default function App() {
             <div className="p-4 bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/10 rounded-2xl flex gap-3 text-xs leading-relaxed text-emerald-600 dark:text-emerald-400 items-start">
               <Shield size={18} className="flex-shrink-0 mt-0.5" />
               <p>
-                Una vez coordinada la cotización por Instagram, realiza la transferencia e infórmanos enviando el comprobante de pago para procesar tu envío de inmediato.
+                Una vez coordinada la cotización, realiza la transferencia e infórmanos enviando el comprobante de pago para procesar tu envío de inmediato.
               </p>
             </div>
 

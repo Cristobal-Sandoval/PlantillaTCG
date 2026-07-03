@@ -363,16 +363,16 @@ function AdminCards({ toast }) {
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-white">Cartas en Stock</h1>
+          <h1 className="text-2xl font-bold text-white">Productos en Stock</h1>
           <p className="text-slate-400 text-sm mt-1">
-            {adminSearch ? `${filteredCards.length} de ` : ''}{cards.length} cartas registradas
+            {adminSearch ? `${filteredCards.length} de ` : ''}{cards.length} productos registrados
           </p>
         </div>
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
           <div className="relative">
             <input
               type="text"
-              placeholder="Buscar por nombre, set..."
+              placeholder="Buscar por nombre, categoría..."
               value={adminSearch}
               onChange={e => setAdminSearch(e.target.value)}
               className="bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#0052FF] focus:ring-1 focus:ring-[#0052FF] w-full sm:w-64 transition-all"
@@ -386,11 +386,8 @@ function AdminCards({ toast }) {
               </button>
             )}
           </div>
-          <button onClick={() => setShowBulkImport(true)} className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-lg shadow-emerald-950/30 whitespace-nowrap">
-            <IcoUpload /> Importar en Lote
-          </button>
           <button onClick={openAdd} className="flex items-center justify-center gap-2 bg-[#0052FF] hover:bg-blue-500 text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-lg shadow-blue-900/30 whitespace-nowrap">
-            <IcoPlus /> Nueva Carta
+            <IcoPlus /> Nuevo Producto
           </button>
         </div>
       </div>
@@ -500,54 +497,10 @@ function AdminCards({ toast }) {
       )}
 
       {showForm && (
-        <Modal title={editingCard ? 'Editar Carta' : 'Nueva Carta'} onClose={() => setShowForm(false)}>
+        <Modal title={editingCard ? 'Editar Producto' : 'Nuevo Producto'} onClose={() => setShowForm(false)}>
           <form onSubmit={handleSave} className="space-y-4">
             <Field label="Nombre">
-              <div className="flex gap-2">
-                <input className={inputCls} required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Ej: Charizard ex" />
-                <button type="button" onClick={handleApiSearch} disabled={apiSearching || !form.name} className="px-4 py-2 bg-[#0052FF]/20 hover:bg-[#0052FF]/40 text-[#4d8aff] rounded-xl text-sm font-bold transition-all border border-[#0052FF]/30 disabled:opacity-50 whitespace-nowrap flex items-center gap-2">
-                  {apiSearching ? 'Buscando...' : 'Buscar Imagen'}
-                </button>
-              </div>
-              {apiResults.length > 0 && (
-                <div className="mt-2 p-3 bg-black/40 rounded-xl border border-white/10 max-h-[300px] overflow-y-auto grid grid-cols-4 gap-2 shadow-inner">
-                  {apiResults.map(res => (
-                    <div key={res.id} onClick={() => selectApiResult(res)} className="cursor-pointer hover:scale-105 transition-transform relative group">
-                      <img src={res.images?.small} alt={res.name} loading="lazy" className="w-full rounded-lg shadow-md border border-white/5" />
-                      <div className="absolute inset-0 bg-[#0052FF]/20 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity flex items-center justify-center">
-                        <IcoCheck />
-                      </div>
-                      <p className="text-[9px] text-slate-400 text-center mt-1 truncate">{res.set?.name}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {/* Error / No results panel */}
-              {apiSearchError && (
-                <div className="mt-2 p-3 bg-amber-900/20 rounded-xl border border-amber-500/30">
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-amber-400 text-xs font-bold">
-                      {apiSearchError === 'timeout' && '⏱️ La búsqueda tardó demasiado (sin respuesta)'}
-                      {apiSearchError === 'no_results' && '🔍 No se encontraron cartas con ese nombre'}
-                      {apiSearchError === 'error' && '⚠️ Error al conectar con la API'}
-                    </p>
-                    <button
-                      type="button"
-                      onClick={handleApiSearch}
-                      className="text-[10px] px-2 py-1 bg-amber-500/20 hover:bg-amber-500/40 text-amber-300 rounded-lg font-bold transition-all border border-amber-500/30"
-                    >
-                      🔄 Reintentar
-                    </button>
-                  </div>
-                  <div className="text-[10px] text-slate-400 space-y-1">
-                    <p className="font-semibold text-slate-300">💡 Sugerencias:</p>
-                    <p>• Usa el nombre en <strong className="text-white">inglés</strong>: "Starmie" en vez de "Mega Starmie"</p>
-                    <p>• Prueba sin "Mega", "ex", "V" o "VMAX" al buscar</p>
-                    <p>• Revisa la ortografía exacta del nombre</p>
-                    <p>• Si no aparece, pega la URL de imagen directamente abajo</p>
-                  </div>
-                </div>
-              )}
+              <input className={inputCls} required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Ej: Nombre de Producto" />
             </Field>
             <div className="grid grid-cols-3 gap-3">
               <Field label="Idioma">
@@ -2166,11 +2119,9 @@ export default function AdminApp() {
   if (!session) return <AdminLogin onLogin={setSession} />;
 
   const navItems = [
-    { id: 'cards', label: 'Cartas', icon: <IcoCards /> },
-    { id: 'news', label: 'Noticias', icon: <IcoNews /> },
+    { id: 'cards', label: 'Productos', icon: <IcoCards /> },
     { id: 'tournaments', label: 'Torneos', icon: <IcoTrophy /> },
     { id: 'banners', label: 'Banners', icon: <IcoImage /> },
-    { id: 'ad', label: 'Anuncio', icon: <IcoMegaphone /> },
     { id: 'coupons', label: 'Cupones', icon: <IcoTag /> },
   ];
 

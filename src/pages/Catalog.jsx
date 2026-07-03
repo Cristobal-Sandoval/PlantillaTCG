@@ -58,12 +58,11 @@ export default function Catalog({
     return () => document.removeEventListener('click', handleOutsideClick);
   }, []);
 
-  // Sugerencias populares de cartas Pokémon
-  const SUGGESTIONS = ["Pikachu", "Charizard", "Lugia", "Mewtwo", "Arceus", "Greninja"];
+  // Sugerencias populares
+  const SUGGESTIONS = ["Producto A", "Producto B", "Categoría X", "Modelo Y"];
 
   const handleSuggestionClick = (term) => {
     setSearchQuery(term);
-    setSelectedRarity('Todas');
     setCardPage(1);
   };
 
@@ -119,7 +118,7 @@ export default function Catalog({
           </span>
           <input
             type="text"
-            placeholder="Buscar Charizard, Pikachu, Mascarada, Crown Zenith..."
+            placeholder="Buscar productos, categorías o código..."
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value);
@@ -127,7 +126,7 @@ export default function Catalog({
             }}
             onFocus={() => setShowAutocomplete(true)}
             className="w-full pl-11 pr-10 py-3.5 rounded-2xl border-0 bg-transparent text-xs sm:text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#0052FF] transition-all"
-            aria-label="Buscar cartas"
+            aria-label="Buscar productos"
           />
           {searchQuery && (
             <button 
@@ -235,13 +234,9 @@ export default function Catalog({
             
             {paginatedCards.map((card, index) => {
               const isInList = inquiryList.some(item => item.id === card.id);
-              const isAdPosition = index === 3; // Mostrar publicidad en la 4ta tarjeta
 
               return (
                 <React.Fragment key={card.id}>
-                  {isAdPosition && (
-                    <GoogleAdSlot format="card" className="col-span-1" />
-                  )}
                   
                   <div 
                     className="rounded-2xl border overflow-hidden flex flex-col justify-between transition-all hover:shadow-xl hover:-translate-y-0.5 bg-white dark:bg-[#121824] border-slate-200 dark:border-slate-800"

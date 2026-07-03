@@ -65,10 +65,10 @@ export default function HowToBuy({ theme }) {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            { q: "¿Hacen envíos a todo Chile?", a: "Sí. Realizamos envíos de lunes a viernes a todo el país a través de Starken, Chilexpress o Correos de Chile, por pagar o cancelado previamente. Todo va sumamente protegido." },
-            { q: "¿Dónde hacen entregas presenciales?", a: "Entregamos directamente en Concepción Centro, previa coordinación a través de nuestro Instagram oficial @tudominio.cl. También en torneos locales." },
-            { q: "¿Las cartas son 100% originales?", a: "Por supuesto. Contamos con amplia reputación. No aceptamos ni comercializamos ninguna carta que no sea oficial de The Pokémon Company." },
-            { q: "¿Cómo funciona la Bolsa de Cotización?", a: "Navegas por la web, agregas las cartas que te interesan y presionas 'Cotizar'. Copiarás un formato de texto directo y nos escribes por Instagram para finalizar el pago por transferencia." }
+            { q: "¿Hacen envíos?", a: "Sí. Realizamos despachos de lunes a viernes a todo el país a través de los principales servicios de courier (por pagar o cancelado previamente según se coordine)." },
+            { q: "¿Ofrecen retiro presencial?", a: "Sí, previa coordinación a través de nuestros canales oficiales de contacto y en los horarios establecidos." },
+            { q: "¿Los productos son originales?", a: "Por supuesto. Todos nuestros artículos son adquiridos con proveedores autorizados, garantizando autenticidad y calidad." },
+            { q: "¿Cómo funciona la Bolsa de Cotización?", a: "Navegas por el catálogo, agregas los productos que te interesan y presionas 'Cotizar'. Copiarás un formato de texto directo que puedes enviarnos para concretar la venta." }
           ].map((faq, idx) => (
             <div key={idx} className="p-5 bg-white dark:bg-[#121824] rounded-2xl border border-slate-200 dark:border-slate-800 space-y-2">
               <h4 className="font-extrabold text-slate-900 dark:text-white text-xs sm:text-sm flex items-center gap-1.5">
@@ -87,16 +87,13 @@ export default function HowToBuy({ theme }) {
       <div className="p-6 sm:p-8 bg-gradient-to-br from-[#0052FF]/10 to-indigo-500/10 rounded-3xl border border-[#0052FF]/20 text-center space-y-4">
         <h4 className="font-black text-slate-900 dark:text-white text-lg">¿Tienes alguna consulta especial?</h4>
         <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-          Buscamos cartas por encargo o te asesoramos en el armado de tu mazo competitivo. ¡No dudes en escribirnos!
+          ¿Buscas algún producto a pedido o necesitas ayuda personalizada? ¡No dudes en escribirnos directamente!
         </p>
         <a
-          href="https://instagram.com/tudominio.cl"
-          target="_blank"
-          rel="noreferrer"
+          href="mailto:contacto@tudominio.cl"
           className="inline-flex bg-[#0052FF] hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl text-xs transition-all items-center gap-1.5 shadow-md shadow-blue-500/10 cursor-pointer mx-auto"
         >
-          <Instagram size={15} />
-          Contactar en @tudominio.cl
+          contacto@tudominio.cl
         </a>
       </div>
     </div>

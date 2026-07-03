@@ -459,193 +459,79 @@ export default function Home({
 
       </div>
 
-      {/* SECCIÓN DOBLE: "Últimas noticias" y "Próximos Torneos" */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        
-        {/* LADO IZQUIERDO: NOTICIAS LOCALES */}
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <span className="text-[10px] font-black text-[#0052FF] tracking-widest uppercase">NOTICIAS</span>
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white">Últimas novedades</h3>
-            </div>
-            <button
-              onClick={() => { setCurrentTab('news'); setSelectedNews(null); }}
-              className="text-xs font-bold text-[#0052FF] hover:text-blue-700 flex items-center gap-0.5 cursor-pointer"
-            >
-              Ver todas <ChevronRight size={14} />
-            </button>
+      {/* SECCIÓN: "Próximos Torneos" */}
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <span className="text-[10px] font-black text-[#0052FF] tracking-widest uppercase">TORNEOS</span>
+            <h3 className="text-2xl font-black text-slate-900 dark:text-white">Próximos torneos y eventos</h3>
           </div>
-
-          <div className="space-y-4">
-            {newsLoading ? (
-              <div className="space-y-4">
-                {Array.from({ length: 3 }).map((_, i) => (
-                  <div key={i} className="flex gap-4 p-3 rounded-2xl border bg-white dark:bg-[#121824] border-slate-100 dark:border-slate-800 animate-pulse">
-                    <div className="w-20 sm:w-24 aspect-[4/3] rounded-xl bg-slate-200 dark:bg-slate-800 flex-shrink-0"></div>
-                    <div className="space-y-2 flex-grow">
-                      <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
-                      <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-1/2"></div>
-                      <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-5/6"></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : visibleNewsList.length === 0 ? (
-              <p className="text-sm text-slate-400">No hay noticias publicadas aún.</p>
-            ) : (
-              visibleNewsList.slice(0, 3).map((n) => (
-                <div 
-                  key={n.id}
-                  onClick={() => { setSelectedNews(n); window.scrollTo(0, 0); }}
-                  className="flex gap-4 p-3 rounded-2xl border cursor-pointer transition-all hover:border-[#0052FF]/40 bg-white dark:bg-[#121824] border-slate-100 dark:border-slate-800"
-                >
-                  <div className="w-20 sm:w-24 aspect-[4/3] rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-950 flex-shrink-0">
-                    <img 
-                      src={n.image} 
-                      alt={`Noticia: ${n.title}`} 
-                      loading="lazy" 
-                      className="w-full h-full object-cover" 
-                      onError={(e) => { e.target.onerror = null; e.target.src = "/og-image.png"; }}
-                    />
-                  </div>
-                  <div className="space-y-1 flex-grow">
-                    <span className="text-[9px] font-bold text-[#0052FF] uppercase">{n.date}</span>
-                    <h4 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white line-clamp-1">{n.title}</h4>
-                    <p className="text-xs text-slate-400 line-clamp-2">{n.summary}</p>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
-
-        {/* LADO DERECHO: TORNEOS EN CONCEPCIÓN */}
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <span className="text-[10px] font-black text-[#0052FF] tracking-widest uppercase">TORNEOS</span>
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white">Próximos torneos en Concepción</h3>
-            </div>
-            <button
-              onClick={() => setCurrentTab('tournaments')}
-              className="text-xs font-bold text-[#0052FF] hover:text-blue-700 flex items-center gap-0.5 cursor-pointer"
-            >
-              Ver todos <ChevronRight size={14} />
-            </button>
-          </div>
-
-          <div className="space-y-4">
-            {tournamentsLoading ? (
-              <div className="space-y-4">
-                {Array.from({ length: 2 }).map((_, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border bg-white dark:bg-[#121824] border-slate-100 dark:border-slate-800 animate-pulse">
-                    <div className="w-16 h-16 rounded-xl bg-slate-200 dark:bg-slate-800 flex-shrink-0"></div>
-                    <div className="flex-grow space-y-2">
-                      <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-1/2"></div>
-                      <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : homepageTournaments.length === 0 ? (
-              <p className="text-sm text-slate-400">No hay torneos programados por ahora.</p>
-            ) : (
-              homepageTournaments.map((t) => (
-                <div 
-                  key={t.id}
-                  className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${
-                    theme === 'dark' ? 'border-slate-800 bg-[#121824]' : 'border-slate-100 bg-white'
-                  }`}
-                >
-                  <div className="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-900 flex flex-col items-center justify-center flex-shrink-0">
-                    <span className="text-xl font-black text-[#0052FF] dark:text-[#0052FF] leading-none">{t.day}</span>
-                    <span className="text-[9px] font-extrabold text-slate-400 mt-0.5">{t.month}</span>
-                  </div>
-
-                  <div className="flex-grow space-y-1">
-                    <div className="flex items-center justify-between gap-2">
-                      {t.registration_link ? (
-                        <a 
-                          href={t.registration_link}
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 hover:text-[#0052FF] hover:underline transition-all cursor-pointer"
-                        >
-                          {t.title}
-                        </a>
-                      ) : (
-                        <h4 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1">{t.title}</h4>
-                      )}
-                      <span className="text-[10px] font-bold text-[#0052FF] bg-blue-50 dark:bg-blue-955/40 px-2 py-0.5 rounded whitespace-nowrap">
-                        Inscripción: {t.entry_fee}
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-400">
-                      <span className="flex items-center gap-1">🛡️ {t.format}</span>
-                      <span className="flex items-center gap-1">📍 {t.location}</span>
-                      <span className="flex items-center gap-1">🕒 {t.time}</span>
-                    </div>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
-
-      </div>
-
-      {/* BANNER DE INSTAGRAM INTERACTIVO */}
-      <div className={`p-4 sm:p-6 rounded-3xl border overflow-hidden relative ${
-        theme === 'dark' ? 'bg-gradient-to-r from-blue-950 to-slate-900 border-slate-800' : 'bg-gradient-to-r from-blue-50/40 via-white to-blue-50/20 border-blue-100/40'
-      }`}>
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
-          
-          {/* Info */}
-          <div className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/10 flex-shrink-0">
-              <Instagram size={20} />
-            </div>
-            <div>
-              <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white leading-tight">Síguenos en Instagram</h3>
-              <p className="text-xs sm:text-sm font-black text-[#0052FF]">@tudominio.cl</p>
-            </div>
-          </div>
-
-          {/* Stock cards showcase */}
-          <div className="flex gap-2 justify-center flex-wrap">
-            {(dbCards.filter(c => c.image).slice(0, 4)).map((card, i) => (
-              <div
-                key={card.id || i}
-                onClick={() => { setCurrentTab('catalog'); }}
-                className="w-12 h-16 sm:w-16 sm:h-20 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 shadow transform hover:scale-105 hover:-translate-y-1 transition-all duration-200 cursor-pointer"
-              >
-                <img src={card.image} alt={`Carta Pokémon ${card.name} en vitrina Instagram`} loading="lazy" className="w-full h-full object-cover" />
-              </div>
-            ))}
-            {/* Fallback si no hay cartas aún */}
-            {dbCards.filter(c => c.image).length === 0 && [
-              "https://images.pokemontcg.io/sv4f/233_hires.png",
-              "https://images.pokemontcg.io/sv3pt5/173_hires.png",
-              "https://images.pokemontcg.io/sv4f/234_hires.png",
-            ].map((imgUrl, i) => (
-              <div key={i} className="w-12 h-16 sm:w-16 sm:h-20 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 shadow">
-                <img src={imgUrl} alt="Carta Pokémon de muestra" loading="lazy" className="w-full h-full object-cover" />
-              </div>
-            ))}
-          </div>
-
-          <a
-            href="https://instagram.com/tudominio.cl"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl shadow-lg transition-all flex items-center gap-2 text-xs sm:text-sm cursor-pointer flex-shrink-0"
+          <button
+            onClick={() => setCurrentTab('tournaments')}
+            className="text-xs font-bold text-[#0052FF] hover:text-blue-700 flex items-center gap-0.5 cursor-pointer"
           >
-            <Instagram size={16} />
-            Ir a Instagram
-          </a>
+            Ver todos <ChevronRight size={14} />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {tournamentsLoading ? (
+            <div className="space-y-4 col-span-2">
+              {Array.from({ length: 2 }).map((_, i) => (
+                <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border bg-white dark:bg-[#121824] border-slate-100 dark:border-slate-800 animate-pulse">
+                  <div className="w-16 h-16 rounded-xl bg-slate-200 dark:bg-slate-800 flex-shrink-0"></div>
+                  <div className="flex-grow space-y-2">
+                    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-1/2"></div>
+                    <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : homepageTournaments.length === 0 ? (
+            <p className="text-sm text-slate-400 col-span-2">No hay torneos programados por ahora.</p>
+          ) : (
+            homepageTournaments.map((t) => (
+              <div 
+                key={t.id}
+                className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${
+                  theme === 'dark' ? 'border-slate-800 bg-[#121824]' : 'border-slate-100 bg-white'
+                }`}
+              >
+                <div className="w-16 h-16 rounded-xl bg-slate-100 dark:bg-slate-900 flex flex-col items-center justify-center flex-shrink-0">
+                  <span className="text-xl font-black text-[#0052FF] dark:text-[#0052FF] leading-none">{t.day}</span>
+                  <span className="text-[9px] font-extrabold text-slate-400 mt-0.5">{t.month}</span>
+                </div>
+
+                <div className="flex-grow space-y-1">
+                  <div className="flex items-center justify-between gap-2">
+                    {t.registration_link ? (
+                      <a 
+                        href={t.registration_link}
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1 hover:text-[#0052FF] hover:underline transition-all cursor-pointer"
+                      >
+                        {t.title}
+                      </a>
+                    ) : (
+                      <h4 className="font-bold text-sm text-slate-900 dark:text-white line-clamp-1">{t.title}</h4>
+                    )}
+                    <span className="text-[10px] font-bold text-[#0052FF] bg-blue-50 dark:bg-blue-955/40 px-2 py-0.5 rounded whitespace-nowrap">
+                      Inscripción: {t.entry_fee}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-400">
+                    <span className="flex items-center gap-1">🛡️ {t.format}</span>
+                    <span className="flex items-center gap-1">📍 {t.location}</span>
+                    <span className="flex items-center gap-1">🕒 {t.time}</span>
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
+
 
     </div>
   );
